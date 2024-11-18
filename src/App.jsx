@@ -13,7 +13,7 @@ const App = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [query, setQuery] = useState('sun');
+  const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [perPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
@@ -22,6 +22,9 @@ const App = () => {
 
   useEffect(() => {
     const getData = async () => {
+      if(!query) {
+        return
+      }
       try {
         setIsLoading(true);
         setIsError(false);
