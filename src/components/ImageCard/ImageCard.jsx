@@ -1,7 +1,12 @@
-const ImageCard = ({image}) => {
+import s from './ImageCard.module.css'
+
+const ImageCard = ({smallImage, altDescription, description, largeImage, onImageClick}) => {
     return (
         <div>
-            <img src={image.small} alt={image.alt_description} />
+            <img className={s.image} src={smallImage} 
+            alt={altDescription}
+            onClick={() => onImageClick(largeImage, description)}
+            style={{cursor: 'pointer'}} />
         </div>
     )
 };
